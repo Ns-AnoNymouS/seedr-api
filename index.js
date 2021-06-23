@@ -89,7 +89,7 @@ module.exports = class Seedr {
                     name: x.name,
                     type: 'video'
                 }
-             }))
+             })
     } else {
         for (var folder of data.data.folders) {
             res.push({
