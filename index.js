@@ -85,10 +85,11 @@ module.exports = class Seedr {
     var data = await axios(url);
 
     // getting the parents if available else returning null
+    let parent
     if (data.data.parent != -1) {
-        const parent = data.data.parent
+        parent = data.data.parent
     } else {
-        const parent = null
+        parent = null
     }
     console.log(data)
     var res = {parentId: parent, files: []};
