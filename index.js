@@ -89,8 +89,8 @@ module.exports = class Seedr {
             })}
         for (var file of data.data.files) {
             res.push({
-                fid: null,
-                id: file.id,
+                fid: id,
+                id: file.folder_file_id,
                 type: 'file',
                 name: file.name
             })}
@@ -107,7 +107,7 @@ module.exports = class Seedr {
         for (var file of data.data.files) {
             res.push({
                 fid: null,
-                id: file.id,
+                id: file.folder_file_id,
                 type: 'file',
                 name: file.name
             })}
