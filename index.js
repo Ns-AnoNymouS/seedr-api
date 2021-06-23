@@ -89,7 +89,7 @@ module.exports = class Seedr {
     } else {
         const parent = null
     }
-
+    console.log(data)
     var res = {parentId: parent, files: []};
     for (var folder of data.data.folders) {
         res.files.push({
