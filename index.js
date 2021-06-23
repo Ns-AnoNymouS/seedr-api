@@ -96,8 +96,8 @@ module.exports = class Seedr {
                 fid: folder.id,
                 type: 'folder',
                 name: folder.name
-            })
-
+            })}
+    }
     return res;
   }
 
