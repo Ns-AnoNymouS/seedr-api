@@ -62,7 +62,7 @@ module.exports = class Seedr {
 
     var data = await axios("https://www.seedr.cc/api/folder?access_token=" + this.token);
 
-    /* for (var folder of data.data.folders) {
+    for (var folder of data.data.folders) {
       res.push((await axios("https://www.seedr.cc/api/folder/" + folder.id + "?access_token=" + this.token)).data.files.filter(x => x["play_video"]).map(x => {
         return {
           fid: folder.id,
@@ -70,9 +70,28 @@ module.exports = class Seedr {
           name: x.name
         }
       }));
-    } */
+    }
 
-    return data;
+    return res;
+  }
+
+  async getFilesById(id=null) {
+    var res = [];
+
+    var data = await axios("https://www.seedr.cc/api/folder?access_token=" + this.token);
+
+    for (var folder of data.data.folders) {
+      res.push((await axios("https://www.seedr.cc/api/folder/" + folder.id + "?access_token=" + this.token)).data.files.filter(x => x["play_video"]).map(x => {
+        return {
+          fid: folder.id,
+          id: x["folder_file_id"],
+          name: x.name
+          type: "video"
+        }
+      }));
+    }
+
+    return res;
   }
 
   async getFile(id) {
