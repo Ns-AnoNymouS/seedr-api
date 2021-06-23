@@ -87,7 +87,7 @@ module.exports = class Seedr {
                     fid: folder.id,
                     id: x["folder_file_id"],
                     name: x.name,
-                    type: 'video'
+                    type: 'file'
                 }
              }))}
     } else {
@@ -96,6 +96,13 @@ module.exports = class Seedr {
                 fid: folder.id,
                 type: 'folder',
                 name: folder.name
+            })}
+        for (var file of data.data.files) {
+            res.push({
+                fid: null,
+                id: file.id,
+                type: 'file',
+                name: file.name
             })}
     }
     return res;
