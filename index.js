@@ -85,8 +85,8 @@ module.exports = class Seedr {
         return {
           fid: folder.id,
           id: x["folder_file_id"],
-          name: x.name
-          type: "video"
+          name: x.name,
+          type: 'video'
         }
       }));
     }
