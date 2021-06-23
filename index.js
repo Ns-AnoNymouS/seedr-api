@@ -81,6 +81,7 @@ module.exports = class Seedr {
         var url = `https://www.seedr.cc/api/folder/${id}?access_token=${this.token}`
     } else {
         var url = `https://www.seedr.cc/api/folder?access_token=${this.token}`
+    }
     var data = await axios(url);
 
     // getting the parents if available else returning null
