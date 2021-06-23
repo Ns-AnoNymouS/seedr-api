@@ -78,19 +78,26 @@ module.exports = class Seedr {
   async getFilesById(id = null) {
     var res = [];
 
-    var data = await axios("https://www.seedr.cc/api/folder?access_token=" + this.token);
-
     if (id) {
+        var data = await axios("https://www.seedr.cc/api/folder/" + id + "?access_token=" + this.token);
+
         for (var folder of data.data.folders) {
-            res.push((await axios("https://www.seedr.cc/api/folder/" + folder.id + "?access_token=" + this.token)).data.files.filter(x => x["play_video"]).map(x => {
-                return {
-                    fid: folder.id,
-                    id: x["folder_file_id"],
-                    name: x.name,
-                    type: 'file'
-                }
-             }))}
+            res.push({
+                fid: folder.id,
+                type: 'folder',
+                name: folder.name
+            })}
+        for (var file of data.data.files) {
+            res.push({
+                fid: null,
+                id: file.id,
+                type: 'file',
+                name: file.name
+            })}
+
     } else {
+        var data = await axios("https://www.seedr.cc/api/folder?access_token=" + this.token);
+
         for (var folder of data.data.folders) {
             res.push({
                 fid: folder.id,
