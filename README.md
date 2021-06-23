@@ -113,9 +113,16 @@ Prints Array of Arrays with file data
 
 [
     {
-      "id": 124291671, // folder id
-      "id": 636235280, // file id
-      "name": "File Name"
+        "parentId": 124291671, // parent folder id
+        "id": 636235280, // folder id
+        "type": 'folder',
+        "name": "FolderName"
+    },
+    {
+        "parentId": 124291671, // parent folder id
+        "id": 636235280, // file id
+        "type": 'file',
+        "name": "FileName"
     },
     ...
   ...
