@@ -83,14 +83,14 @@ module.exports = class Seedr {
 
         for (var folder of data.data.folders) {
             res.push({
-                parentId: data.data.folder_id,
+                parentId: data.data.parent,
                 id: folder.id,
                 type: 'folder',
                 name: folder.name
             })}
         for (var file of data.data.files) {
             res.push({
-                parentId: data.data.folder_id,
+                parentId: data.data.parent,
                 id: file.folder_file_id,
                 type: 'file',
                 name: file.name
@@ -101,14 +101,14 @@ module.exports = class Seedr {
 
         for (var folder of data.data.folders) {
             res.push({
-                parentId: null,
+                parentId: "",
                 id: folder.id,
                 type: 'folder',
                 name: folder.name
             })}
         for (var file of data.data.files) {
             res.push({
-                parentId: null,
+                parentId: "",
                 id: file.folder_file_id,
                 type: 'file',
                 name: file.name
