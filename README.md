@@ -1,7 +1,9 @@
+Added Some new functions
+
 # Seedr.cc API
 ![seedr.cc](https://user-images.githubusercontent.com/17960677/97034774-0b55bf00-1583-11eb-9529-807646a216de.png)  
   
-    
+
 
 Unofficial API wrapper for seedr.cc
 ## Example
@@ -95,6 +97,32 @@ Prints Array of Arrays with file data
 ]
 */
 ```
+
+### Getting contents in a specific folder
+To get contents (all videos, files, etc in folder), use the `getFilesById` function
+
+```js
+var Seedr = require("seedr");
+var seedr = new Seedr();
+await seedr.login("email@example.com","password");
+
+await seedr.getFilesById();
+
+/*
+Prints Array of Arrays with file data
+
+[
+    {
+      "id": 124291671, // folder id
+      "id": 636235280, // file id
+      "name": "File Name"
+    },
+    ...
+  ...
+]
+*/
+```
+
 ### Deleting contents
 
 To delete Folders use `deleteFolder` function and to delete files, use `deleteFiles` function
