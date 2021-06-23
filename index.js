@@ -89,8 +89,8 @@ module.exports = class Seedr {
                     name: x.name,
                     type: 'video'
                 }
-             }));
-        } else {
+             }))
+    } else {
         for (var folder of data.data.folders) {
             res.push({
                 fid: folder.id,
