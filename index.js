@@ -76,21 +76,25 @@ module.exports = class Seedr {
   }
 
   async getFilesById(id = null) {
-    var res = [];
-
     if (id) {
         var data = await axios("https://www.seedr.cc/api/folder/" + id + "?access_token=" + this.token);
 
+        // getting the parents if available else returning null
+        if (data.data.parent != -1) {
+            const parent = data.data.parent
+        } else {
+            const parent = null
+        }
+
+        var res = {parentId: parent, files: []};
         for (var folder of data.data.folders) {
-            res.push({
-                parentId: data.data.parent,
+            res.files.push({
                 id: folder.id,
                 type: 'folder',
                 name: folder.name
             })}
         for (var file of data.data.files) {
-            res.push({
-                parentId: data.data.parent,
+            res.files.push({
                 id: file.folder_file_id,
                 type: 'file',
                 name: file.name
@@ -98,17 +102,16 @@ module.exports = class Seedr {
 
     } else {
         var data = await axios("https://www.seedr.cc/api/folder?access_token=" + this.token);
+        var res = {parentId: null, files: []};
 
         for (var folder of data.data.folders) {
-            res.push({
-                parentId: "",
+            res.files.push({
                 id: folder.id,
                 type: 'folder',
                 name: folder.name
             })}
         for (var file of data.data.files) {
-            res.push({
-                parentId: "",
+            res.files.push({
                 id: file.folder_file_id,
                 type: 'file',
                 name: file.name
