@@ -77,46 +77,32 @@ module.exports = class Seedr {
 
   async getFilesById(id = null) {
     if (id) {
-        var data = await axios("https://www.seedr.cc/api/folder/" + id + "?access_token=" + this.token);
-
-        // getting the parents if available else returning null
-        if (data.data.parent != -1) {
-            const parent = data.data.parent
-        } else {
-            const parent = null
-        }
-
-        var res = {parentId: parent, files: []};
-        for (var folder of data.data.folders) {
-            res.files.push({
-                id: folder.id,
-                type: 'folder',
-                name: folder.name
-            })}
-        for (var file of data.data.files) {
-            res.files.push({
-                id: file.folder_file_id,
-                type: 'file',
-                name: file.name
-            })}
-
+        var url = `https://www.seedr.cc/api/folder/${id}?access_token=${this.token}`
     } else {
-        var data = await axios("https://www.seedr.cc/api/folder?access_token=" + this.token);
-        var res = {parentId: null, files: []};
+        var url = `https://www.seedr.cc/api/folder?access_token=${this.token}`
+    var data = await axios(url);
 
-        for (var folder of data.data.folders) {
-            res.files.push({
-                id: folder.id,
-                type: 'folder',
-                name: folder.name
-            })}
-        for (var file of data.data.files) {
-            res.files.push({
-                id: file.folder_file_id,
-                type: 'file',
-                name: file.name
-            })}
+    // getting the parents if available else returning null
+    if (data.data.parent != -1) {
+        const parent = data.data.parent
+    } else {
+        const parent = null
     }
+
+    var res = {parentId: parent, files: []};
+    for (var folder of data.data.folders) {
+        res.files.push({
+            id: folder.id,
+            type: 'folder',
+            name: folder.name
+        })}
+    for (var file of data.data.files) {
+        res.files.push({
+            id: file.folder_file_id,
+            type: 'file',
+            name: file.name
+        })}
+
     return res;
   }
 
