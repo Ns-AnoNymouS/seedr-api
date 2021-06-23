@@ -76,6 +76,7 @@ module.exports = class Seedr {
   }
 
   async getFilesById(id = null) {
+    // getting the required url and requesting json data
     if (id) {
         var url = `https://www.seedr.cc/api/folder/${id}?access_token=${this.token}`
     } else {
