@@ -62,7 +62,7 @@ module.exports = class Seedr {
 
     var data = await axios("https://www.seedr.cc/api/folder?access_token=" + this.token);
 
-    for (var folder of data.data.folders) {
+    /* for (var folder of data.data.folders) {
       res.push((await axios("https://www.seedr.cc/api/folder/" + folder.id + "?access_token=" + this.token)).data.files.filter(x => x["play_video"]).map(x => {
         return {
           fid: folder.id,
@@ -70,9 +70,9 @@ module.exports = class Seedr {
           name: x.name
         }
       }));
-    }
+    } */
 
-    return res;
+    return data;
   }
 
   async getFile(id) {
