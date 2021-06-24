@@ -130,6 +130,21 @@ module.exports = class Seedr {
     return res.data;
   }
 
+  async rename(id, newName) {
+    var data = new FormData();
+    data.append('access_token', this.token);
+    data.append('func', 'fetch_file');
+    data.append('folder_file_id', id);
+
+    var res = await axios({
+      method: 'post',
+      url: 'https://www.seedr.cc/oauth_test/resource.php',
+      headers: data.getHeaders(),
+      data: data
+    });
+    return res.data;
+  }
+
   async deleteFolder(id) {
     var data = new FormData();
     data.append('access_token', this.token);
