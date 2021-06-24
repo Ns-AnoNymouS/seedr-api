@@ -130,11 +130,12 @@ module.exports = class Seedr {
     return res.data;
   }
 
-  async rename(id, newName) {
+  async rename(id=0, newName=0) {
     var data = new FormData();
     data.append('access_token', this.token);
-    data.append('func', 'fetch_file');
-    data.append('folder_file_id', id);
+    data.append('func', 'rename');
+    data.append('rename_to', 'Newname')
+    data.append('file_id', 943600241);
 
     var res = await axios({
       method: 'post',
