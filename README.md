@@ -111,22 +111,16 @@ await seedr.getFilesById();
 /*
 Prints Array of Arrays with file data
 
-[
-    {
-        "parentId": 124291671, // parent folder id
-        "id": 636235280, // folder id
-        "type": 'folder',
-        "name": "FolderName"
-    },
-    {
-        "parentId": 124291671, // parent folder id
-        "id": 636235280, // file id
-        "type": 'file',
-        "name": "FileName"
-    },
-    ...
-  ...
-]
+{
+    parentId: ,
+    name: data.data.name,
+    folderSize: 0,
+    totalStorage: data.data.space_max,
+    usedStorage: data.data.space_used,
+    type: data.data.type, 
+    files: []
+};
+
 */
 ```
 
