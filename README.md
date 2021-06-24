@@ -111,15 +111,29 @@ await seedr.getFilesById();
 /*
 Prints Array of Arrays with file data
 
+
 {
-    parentId: ,
-    name: data.data.name,
-    folderSize: 0,
-    totalStorage: data.data.space_max,
-    usedStorage: data.data.space_used,
-    type: data.data.type, 
-    files: []
-};
+   parentId: 167483733,
+   name: 'Superman.and.Lois.S01E11.1080p.AMZN.WEBRip.DDP5.1.x264-NTb[rartv]',
+   folderSize: 129,
+   totalStorage: 2147483648,
+   usedStorage: 720392889,
+   type: 'folder',
+   files: [
+     { id: 943600241,
+       type: 'file',
+       name: 'Newname',
+       size: 30
+     },
+     {
+       id: 943600242,
+       type: 'file',
+       name: 'RARBG_DO_NOT_MIRROR.exe',
+       size: 99
+     },
+     ...
+   ]
+}
 
 */
 ```
