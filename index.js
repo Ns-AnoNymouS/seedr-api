@@ -97,13 +97,15 @@ module.exports = class Seedr {
         res.files.push({
             id: folder.id,
             type: 'folder',
-            name: folder.name
+            name: folder.name, 
+            size: folder.size
         })}
     for (var file of data.data.files) {
         res.files.push({
             id: file.folder_file_id,
             type: 'file',
-            name: file.name
+            name: file.name,
+            size: file.size
         })}
 
     return res;
