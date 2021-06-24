@@ -1,5 +1,3 @@
-Added Some new functions
-
 # Seedr.cc API
 ![seedr.cc](https://user-images.githubusercontent.com/17960677/97034774-0b55bf00-1583-11eb-9529-807646a216de.png)  
   
