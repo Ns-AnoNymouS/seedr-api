@@ -83,7 +83,7 @@ module.exports = class Seedr {
         var url = `https://www.seedr.cc/api/folder?access_token=${this.token}`
     }
     var data = await axios(url);
-    console.log(url)
+
     // getting the parents if available else returning null
     let parent
     if (data.data.parent != -1) {
