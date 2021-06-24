@@ -138,6 +138,16 @@ Prints Array of Arrays with file data
 */
 ```
 
+### Renaming files
+You can change the file name using this method
+```js
+var Seedr = require("seedr");
+var seedr = new Seedr();
+await seedr.login("email@example.com","password");
+
+await seedr.rename(id=943600242, newName="New file name");
+```
+
 ### Deleting contents
 
 To delete Folders use `deleteFolder` function and to delete files, use `deleteFiles` function
