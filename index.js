@@ -99,18 +99,18 @@ module.exports = class Seedr {
             type: 'folder',
             name: folder.name, 
             size: folder.size
-        })}
-        if (folder) {if (folder.size) {res.folderSize = res.folderSize + parseInt(folder.size)}}
-        console.log(res.folderSize, folder.size)
+        })
+        if (folder.size) {res.folderSize = res.folderSize + parseInt(folder.size)}
+    }
     for (var file of data.data.files) {
         res.files.push({
             id: file.folder_file_id,
             type: 'file',
             name: file.name,
             size: file.size
-        })}
-        if (file) {if (file.size) {res.folderSize = res.folderSize + parseInt(file.size)}}
-        console.log(res.folderSize, file.size)
+        })
+        if (file.size) {res.folderSize = res.folderSize + parseInt(file.size)}
+    }
 
     return res;
   }
