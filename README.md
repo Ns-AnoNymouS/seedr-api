@@ -145,7 +145,7 @@ var Seedr = require("seedr");
 var seedr = new Seedr();
 await seedr.login("email@example.com","password");
 
-await seedr.rename(id=943600242, newName="New file name");
+await seedr.rename("file_id", "newName");
 ```
 
 ### Deleting contents
