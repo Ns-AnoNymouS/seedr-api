@@ -92,8 +92,7 @@ module.exports = class Seedr {
         parent = null
     }
 
-    var res = {parentId: parent, name: data.data.name, totalStorage: data.data.space_max, usedStorage: data.data.space_used, type: data.data.type, files: []};
-    let folderSize = 0
+    var res = {parentId: parent, name: data.data.name, folderSize: 0, totalStorage: data.data.space_max, usedStorage: data.data.space_used, type: data.data.type, files: []};
     for (var folder of data.data.folders) {
         res.files.push({
             id: folder.id,
@@ -101,7 +100,7 @@ module.exports = class Seedr {
             name: folder.name, 
             size: folder.size
         })}
-        if (folder.size) {folderSize += parseInt(folder.size)}
+        if (folder.size) {res.folderSize += parseInt(folder.size)}
     for (var file of data.data.files) {
         res.files.push({
             id: file.folder_file_id,
@@ -109,7 +108,7 @@ module.exports = class Seedr {
             name: file.name,
             size: file.size
         })}
-        if (file.size) {folderSize += parseInt(file.size)}
+        if (file.size) {res.folderSize += parseInt(file.size)}
 
     res.folderSize = folderSize
     return res;
