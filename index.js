@@ -101,6 +101,7 @@ module.exports = class Seedr {
             size: folder.size
         })}
         if (folder) {if (folder.size) {res.folderSize = res.folderSize + parseInt(folder.size)}}
+        console.log(res.folderSize, folder.size)
     for (var file of data.data.files) {
         res.files.push({
             id: file.folder_file_id,
@@ -109,6 +110,7 @@ module.exports = class Seedr {
             size: file.size
         })}
         if (file) {if (file.size) {res.folderSize = res.folderSize + parseInt(file.size)}}
+        console.log(res.folderSize, file.size)
 
     return res;
   }
