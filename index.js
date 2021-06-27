@@ -13,6 +13,7 @@ module.exports = class Seedr {
     data.append('type', 'login');
     data.append('username', this.username);
     data.append('password', this.password);
+    console.log(data)
     var token = await axios({
       method: 'post',
       url: 'https://www.seedr.cc/oauth_test/token.php',
